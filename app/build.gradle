@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "com.yourorg.sample"
+        minSdk 28
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+                arguments "-DANDROID_STL=c++_shared"
+            }
+        }
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86_64"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    // If you want Gradle to package prebuilt native libraries
+    // with your APK, modify the default source set configuration
+    // to include the directory of your prebuilt .so files as follows.
+    sourceSets {
+        main {
+            jniLibs.srcDirs 'libnode/bin/'
+        }
+    }
+
+    packagingOptions {
+        pickFirst 'lib/armeabi-v7a/libnode.so'
+        pickFirst 'lib/arm64-v8a/libnode.so'
+        pickFirst 'lib/x86_64/libnode.so'
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}

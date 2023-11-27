@@ -1,0 +1,42 @@
+{
+  "stringTable": {},
+  "buildFiles": [
+    "/home/harry/AndroidStudioProjects/nodejs-mobile-samples/android/native-gradle-node-folder/app/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/harry/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+      "-C",
+      "/home/harry/AndroidStudioProjects/nodejs-mobile-samples/android/native-gradle-node-folder/app/.cxx/cmake/debug/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/harry/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+    "-C",
+    "/home/harry/AndroidStudioProjects/nodejs-mobile-samples/android/native-gradle-node-folder/app/.cxx/cmake/debug/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "native-lib-Debug-x86_64": {
+      "buildCommandComponents": [
+        "/home/harry/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+        "-C",
+        "/home/harry/AndroidStudioProjects/nodejs-mobile-samples/android/native-gradle-node-folder/app/.cxx/cmake/debug/x86_64",
+        "native-lib"
+      ],
+      "buildType": "debug",
+      "abi": "x86_64",
+      "artifactName": "native-lib",
+      "output": "/home/harry/AndroidStudioProjects/nodejs-mobile-samples/android/native-gradle-node-folder/app/build/intermediates/cmake/debug/obj/x86_64/libnative-lib.so",
+      "runtimeFiles": [
+        "/home/harry/AndroidStudioProjects/nodejs-mobile-samples/android/native-gradle-node-folder/app/libnode/bin/x86_64/libnode.so"
+      ]
+    }
+  },
+  "toolchains": {},
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
